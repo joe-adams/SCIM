@@ -1,0 +1,10 @@
+New log file opened at Mon Dec 19 09:55:39 CST 2016 by 18058@joe
+Taking next connection to: 35220
+New client attempting to connect on port: 42874-35220
+  Address = /127.0.1.1:35220
+This client on port 42874 has uuid cc432430-0c0f-44d9-9ac9-2cb0a1060dba configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-cc432430-0c0f-44d9-9ac9-2cb0a1060dba
+Taking next connection to: 35220
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 35220

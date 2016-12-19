@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
+    <script src="assets/javascripts/jquery.js"></script>
+    <script>
+        /*$(function() {
+            alert("hi");
+        })*/
+        $(()=>{
+            $('#createuserbutton').click(()=>{
+                const username=$('#username').val();
+                const name={
+                    "formatted":$('#formatted').val(),
+                    "familyName":$('#familyName').val(),
+                    "givenName":$('#givenName').val()
+                };
+                console.log(username);
+                const data={
+                    "userName":username,
+                    "name":name
+                };
+                const request=$.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    url:"scim/v2/Users",
+                    data:JSON.stringify(data)
+                });
+                request.then(data=>alert(data));
+                request.catch(error=>console.log(error));
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Form Helpers</h1>
+    <form class="bd-example" >
+        <fieldset>
+            <legend>Create User</legend>
+
+            <p>
+                <label for="username">User name</label>
+                <input id="username" placeholder="User name" type="text" value="a">
+            </p>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input id="formatted" placeholder="formatted" type="text" value="formatted">
+                </div>
+                <div class="col-xs-4">
+                    <input id="familyName" placeholder="familyName" type="text" value="familyName">
+                </div>
+                <div class="col-xs-4">
+                    <input id="givenName" placeholder="givenName" type="text" value="givenName">
+                </div>
+            </div>
+
+            <p>
+                <label for="select">Example select</label>
+                <select id="select">
+                    <option value="">Choose...</option>
+                    <optgroup label="Option group 1">
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                        <option value="">Option 3</option>
+                    </optgroup>
+                    <optgroup label="Option group 2">
+                        <option value="">Option 4</option>
+                        <option value="">Option 5</option>
+                        <option value="">Option 6</option>
+                    </optgroup>
+                </select>
+            </p>
+
+            <p>
+                <label>
+                    <input value="" type="checkbox">
+                    Check this checkbox
+                </label>
+            </p>
+
+            <p>
+                <label>
+                    <input name="optionsRadios" id="optionsRadios1" value="option1" checked="" type="radio">
+                    Option one is this and that
+                </label>
+                <label>
+                    <input name="optionsRadios" id="optionsRadios2" value="option2" type="radio">
+                    Option two is something else that's also super long to demonstrate the wrapping of these fancy form controls.
+                </label>
+                <label>
+                    <input name="optionsRadios" id="optionsRadios3" value="option3" disabled="" type="radio">
+                    Option three is disabled
+                </label>
+            </p>
+
+            <p>
+                <label for="textarea">Example textarea</label>
+                <textarea id="textarea" rows="3"></textarea>
+            </p>
+
+            <p>
+                <label for="time">Example temporal</label>
+                <input id="time" type="datetime-local">
+            </p>
+
+            <p>
+                <label for="output">Example output</label>
+                <output name="result" id="output">100</output>
+            </p>
+
+            <p>
+                <button type="button" id="createuserbutton">Create User</button>
+            </p>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>
